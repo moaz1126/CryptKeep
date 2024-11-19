@@ -26,9 +26,18 @@
     transition: 0.3s;
     box-sizing: border-box;
 }
-#search #PasswordInput {
+#search #UsernameInput {
     position: absolute;
     top: 50px;
+    width: 100%;
+    z-index: 999;
+    border-bottom: 2px solid black;
+    display: none;
+    height: 48px;
+}
+#search #PasswordInput {
+    position: absolute;
+    top: 100px;
     width: 195px;
     z-index: 999;
     border-bottom: 2px solid black;
@@ -37,7 +46,7 @@
 }
 #search #PasswordLength {
     position: absolute;
-    top: 50px;
+    top: 100px;
     height: 48px;
     width: 65px;
     z-index: 999;
@@ -47,11 +56,12 @@
 }
 #search #Random {
     position: absolute;
-    top: 50px;
+    top: 100px;
     right: 0px;
     width: 150px;
     display: none;
     height: 46px;
+    z-index: 900;
 }
 button {
     float: right;
@@ -116,6 +126,20 @@ button {
     border: 1px solid black;
     padding: 7px;
 }
+.app .content .usernamediv {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 210px;
+}
+.app .content .usernamediv input {
+    width: 100%;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 7px;
+}
 .app .content .password button {
     outline: none;
     border: none;
@@ -134,8 +158,15 @@ button {
     left: 0px;
     border-radius: 3px;
     display: none;
-    /* justify-content: space ; */
-    align-items: center;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+}
+.editpassword span {
+    position: absolute;
+    top: 6px;
+    right: 6px;
 }
 .editpassword input {
     width: 180px;
@@ -144,12 +175,11 @@ button {
     border: 1px solid black;
     padding: 7px;
     margin-left: 30px;
+    height: 30px;
 }
 .editpassword .fa-xmark {
-    position: absolute;
     font-size: 22px;
-    top: 6px;
-    right: 6px;
+    position: unset;
 }
 .editpassword button {
     outline: none;
@@ -159,7 +189,11 @@ button {
     border-radius: 3px;
     border: 1px solid black;
     transition: 0.3s;
-    margin-left: 15px;
+    /* margin-left: 15px; */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
 }
 .editpassword button:hover {
     background-color: var(--main-color3);

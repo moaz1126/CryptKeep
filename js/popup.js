@@ -68,17 +68,28 @@ function settingsSH() {
 }
 
 let PasswordInput = document.querySelector("#PasswordInput");
-let  lengthInput = document.querySelector('#PasswordLength')
+let usernameInput = document.querySelector("#UsernameInput");
+let lengthInput = document.querySelector('#PasswordLength')
 let RandomButton = document.querySelector('#Random')
-function add() {
-    if(PasswordInput.style.display == 'flex') {
-        AddAPP()
-        // PasswordInput.style.display = 'none'
-    } else {
-        PasswordInput.style.display = 'flex'
-        lengthInput.style.display = 'flex'
-        RandomButton.style.display = 'block'
-
+function add(e) {
+    if(!e) {
+        if(PasswordInput.style.display == 'flex') {
+            AddAPP()
+            // PasswordInput.style.display = 'none'
+        } else {
+            PasswordInput.style.display = 'flex';
+            lengthInput.style.display = 'flex';
+            RandomButton.style.display = 'block';
+            usernameInput.style.display = 'flex'
+            appsDiv.style.marginTop = '110px'
+        }
+    }
+    if(e == true) {
+        PasswordInput.style.display = 'none';
+        lengthInput.style.display = 'none';
+        RandomButton.style.display = 'none';
+        usernameInput.style.display = 'none'
+        appsDiv.style.marginTop = '60px'
     }
 }
 

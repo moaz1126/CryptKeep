@@ -76,13 +76,16 @@ function RandomPassword() {
 }
 
 const appsDiv = document.querySelector('#apps')
-function addAPP(appName, password, i, imgURL, Value) {
+function addAPP(appName, password, i, imgURL, Value, username) {
     appsDiv.innerHTML = appsDiv.innerHTML + `
         <div class="app">
             <img src="${imgURL}">
             <div class="content">
                 <h4 class="appName">${appName}</h4>
                 <span onclick="menu2(${i})" class="editDots"><i class="fa-solid fa-ellipsis"></i></span>
+                <div class="usernamediv">
+                    <input type="text" class="usernameinput" value="${username}" readonly>
+                </div>
                 <div class="password">
                     <input type="password" class="password2 PassContent" value="${password}" readonly>
                     <button onclick="PassCopy(${i})">Copy</button>
@@ -96,6 +99,7 @@ function addAPP(appName, password, i, imgURL, Value) {
                 </div>
                 <div class="editpassword">
                     <span onclick="xmarkspanFun(${i})"><i class="fa-solid fa-xmark"></i></span>
+                    <input type="text" class="EdotedUsername" value="${username}">
                     <input type="password" class="EdotedPassword">
                     <button onclick="Editpassword(${i})">Enter</button>
                 </div>
@@ -157,15 +161,19 @@ window.addEventListener('load', function() {
 
 let newpasskey = document.querySelector('#newpasskey');
 function createiv() {
-    passkey = newpasskey.value;
-    let cryptoiven =  crypto.getRandomValues(new Uint8Array(12));
-    let criptoiv = base64Encode(String.fromCharCode(...cryptoiven));
-    // console.log(criptoiv, cryptoiven)
-    FileContent = {}
-    passkey2 = criptoiv;
-
-    createMenu.style.display = 'none'
-    ivSH(criptoiv);
+    if(newpasskey.value.length > 4) {
+        passkey = newpasskey.value;
+        let cryptoiven =  crypto.getRandomValues(new Uint8Array(12));
+        let criptoiv = base64Encode(String.fromCharCode(...cryptoiven));
+        // console.log(criptoiv, cryptoiven)
+        FileContent = {}
+        passkey2 = criptoiv;
+    
+        createMenu.style.display = 'none'
+        ivSH(criptoiv);
+    } else {
+        alert('Enter passkey')
+    }
 }
 
 

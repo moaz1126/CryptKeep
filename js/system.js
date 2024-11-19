@@ -81,11 +81,18 @@ async function LoadData() {
         const details = FileContent[appName].password;
         let icon = await searchAppIconSystem(appName)
         let decryptPass = await decrypt(details, passkey, passkey2)
-        if(FileContent[appName].backup) {
+        if(FileContent[appName].backup && FileContent[appName].username) {
             let encriptBack = await decrypt(FileContent[appName].backup, passkey, passkey2)
-            await addAPP(appName, decryptPass, i, icon, encriptBack);
+            let encriptBackUser = await decrypt(FileContent[appName].username, passkey, passkey2)
+            await addAPP(appName, decryptPass, i, icon, encriptBack, encriptBackUser);
+        } else if(FileContent[appName].backup) {
+            let encriptBack = await decrypt(FileContent[appName].backup, passkey, passkey2)
+            await addAPP(appName, decryptPass, i, icon, encriptBack, '');
+        } else if(FileContent[appName].username) {
+            let encriptBackUser = await decrypt(FileContent[appName].username, passkey, passkey2)
+            await addAPP(appName, decryptPass, i, icon, '', encriptBackUser);
         } else {
-            await addAPP(appName, decryptPass, i, icon, '');
+            await addAPP(appName, decryptPass, i, icon, '', '');
         }
     }
 }
@@ -95,21 +102,27 @@ async function AddAPP() {
     if(passkey && passkey2) {
         if(searchInput.value.length > 0 && PasswordInput.value.length > 7) {
             if(!FileContent[searchInput.value]) {
+                Loader(true);
                 let encryptPassword = await encrypt(PasswordInput.value, passkey, passkey2);
-                FileContent[searchInput.value] = { password: `${encryptPassword}` };
-                Loader(true);
+                if(usernameInput.value.length > 0) {
+                    let encryptUser = await encrypt(PasswordInput.value, passkey, passkey2);
+                    FileContent[searchInput.value] = { password: `${encryptPassword}`, username: `${encryptUser}` };
+                } else {
+                    FileContent[searchInput.value] = { password: `${encryptPassword}` };
+                }
                 let icon = await searchAppIconSystem(searchInput.value)
-                // console.log(searchValue.value, PasswordInput.value, appsDiv.children.length, icon)
                 Loader(true);
-                addAPP(searchInput.value, PasswordInput.value, appsDiv.children.length, icon, '')
+                addAPP(searchInput.value, PasswordInput.value, appsDiv.children.length, icon, '', usernameInput.value)
                 Loader(false);
                 if(window.localStorage.getItem('SaveToLocalStorge') == 'true') {
                     window.localStorage.setItem('Passwords', JSON.stringify(FileContent))
                 }
                 searchInput.value = "";
                 PasswordInput.value = "";
+                usernameInput.value = "";
+                add(true)
             } else {
-                alert('Please enter a valid name')
+                alert('Please enter a valid name');
             }
         } else {
             alert('Please enter app name and password');
@@ -122,13 +135,32 @@ async function AddAPP() {
 async function Editpassword(e) {
     let h3 = document.querySelectorAll('.appName')[e];
     let EdotedPassword = document.querySelectorAll('.EdotedPassword')[e];
-    let PasswordCon = document.querySelectorAll('.PassContent')[e]
-    PasswordCon.value = EdotedPassword.value;
-    let encryptedPass = await encrypt(EdotedPassword.value, passkey, passkey2)
-    // console.log(h3, EdotedPassword, )
-    FileContent[h3.textContent].password = encryptedPass;
-    if(window.localStorage.getItem('SaveToLocalStorge') == 'true') {
-        window.localStorage.setItem('Passwords', JSON.stringify(FileContent))
+    let PasswordCon = document.querySelectorAll('.PassContent')[e];
+    let usernameinputCon = document.querySelectorAll('.usernameinput')[e];
+    let EdotedUsernameCon = document.querySelectorAll('.EdotedUsername')[e];
+
+    if(EdotedPassword.value.length > 0) {
+        PasswordCon.value = EdotedPassword.value;
+        let encryptedPass = await encrypt(EdotedPassword.value, passkey, passkey2)
+        // console.log(h3, EdotedPassword, )
+        FileContent[h3.textContent].password = encryptedPass;
+        if(window.localStorage.getItem('SaveToLocalStorge') == 'true') {
+            window.localStorage.setItem('Passwords', JSON.stringify(FileContent))
+        }
+    }
+    if(EdotedUsernameCon.value.length > 0) {
+        usernameinputCon.value = EdotedUsernameCon.value;
+        let encryptedUser = await encrypt(EdotedUsernameCon.value, passkey, passkey2)
+        // console.log(h3, EdotedPassword, )
+        FileContent[h3.textContent].username = encryptedUser;
+        if(window.localStorage.getItem('SaveToLocalStorge') == 'true') {
+            window.localStorage.setItem('Passwords', JSON.stringify(FileContent))
+        } 
+    } else {
+        delete FileContent[h3.textContent].username;
+        if(window.localStorage.getItem('SaveToLocalStorge') == 'true') {
+            window.localStorage.setItem('Passwords', JSON.stringify(FileContent))
+        } 
     }
     xmarkspanFun(e)
 }
