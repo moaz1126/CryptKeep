@@ -1,0 +1,480 @@
+#search {
+    width: 400px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--main-color1);
+    margin-top: 15px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    position: relative;
+}
+#search input {
+    padding: 15px;
+    outline: 0px;
+    border: 0px;
+    width: 300px;
+}
+#search button {
+    width: 46px;
+    height: 46px;
+    outline: none;
+    border: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+#search #PasswordInput {
+    position: absolute;
+    top: 50px;
+    width: 195px;
+    z-index: 999;
+    border-bottom: 2px solid black;
+    display: none;
+    height: 48px;
+}
+#search #PasswordLength {
+    position: absolute;
+    top: 50px;
+    height: 48px;
+    width: 65px;
+    z-index: 999;
+    left: 200px;
+    border-bottom: 2px solid black;
+    display: none;
+}
+#search #Random {
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    width: 150px;
+    display: none;
+    height: 46px;
+}
+button {
+    float: right;
+}
+#search button:hover {
+    background-color: var(--main-color3);
+    color: white;
+}
+#apps {
+    width: 94%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 85px;
+    margin-top: 60px;
+}
+.app {
+    background-color: white;
+    width: 300px;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+/* #apps:last-child {
+    margin-bottom: 30px;
+} */
+.app .editDots {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+.app .content {
+    margin-left: 10px;
+}
+.app .content .password {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 210px;
+}
+.app .content .password .fa-eye-slash {
+    display: none;
+}
+.app .content .password input {
+    width: 120px;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 7px;
+}
+.app .content .password button {
+    outline: none;
+    border: none;
+    height: 32px;
+    width: 50px;
+    border-radius: 3px;
+    border: 1px solid black;
+    transition: 0.3s;
+}
+.editpassword {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    top: 0px;
+    left: 0px;
+    border-radius: 3px;
+    display: none;
+    /* justify-content: space ; */
+    align-items: center;
+}
+.editpassword input {
+    width: 180px;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 7px;
+    margin-left: 30px;
+}
+.editpassword .fa-xmark {
+    position: absolute;
+    font-size: 22px;
+    top: 6px;
+    right: 6px;
+}
+.editpassword button {
+    outline: none;
+    border: none;
+    height: 32px;
+    width: 50px;
+    border-radius: 3px;
+    border: 1px solid black;
+    transition: 0.3s;
+    margin-left: 15px;
+}
+.editpassword button:hover {
+    background-color: var(--main-color3);
+    color: white;
+    outline: 0px;
+    border: 0px;
+}
+
+.backupcodes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    top: 0px;
+    left: 0px;
+    border-radius: 3px;
+    display: none;
+    /* justify-content: space ; */
+    align-items: center;
+}
+.backupcodes .fa-xmark {
+    position: absolute;
+    font-size: 22px;
+    top: 13px;
+    right: 13px;
+    z-index: 400;
+}
+.backupcodes .fa-check {
+    position: absolute;
+    font-size: 22px;
+    bottom: 13px;
+    right: 13px;
+    z-index: 400;
+    transition: 0.3s;
+
+}
+.backupcodes .fa-check:hover {
+    color: rgb(0, 255, 0);
+}
+.backupcodes textarea {
+    width: 94%;
+    height: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+.app .content .password button:hover {
+    background-color: var(--main-color3);
+    color: white;
+    outline: 0px;
+    border: 0px;
+}
+.app .content .password span {
+    /* width: 10px; */
+    /* margin-left: 10px; */
+}
+.app img {
+    width: 50px;
+}
+.app .editMenu {
+    position: absolute;
+    background-color: #333333;
+    display: none;
+    flex-direction: column;
+    top: 27px;
+    right: 5px;
+    width: 100px;
+    border-radius: 0.4px;
+    color: white;
+    transition: 0.3s;
+    z-index: 700;
+}
+.app .editMenu span {
+    padding: 6px;
+    transition: 0.3s;
+}
+.app .editMenu span:hover {
+    background-color: var(--main-color2);
+    color: white;
+}
+#uplode, #settings {
+    background-color: var(--main-color5);
+    position: fixed;
+    width: 300px;
+    height: 350px;
+    border-radius: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    /* display: flex; */
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+    display: none;
+    z-index: 800;
+    position: fixed;
+}
+#settings {
+    /* justify-content: space-around; */
+    height: 380px;
+}
+#settings .fa-gear {
+    margin-top: 10px;
+}
+#settings h3 {
+    margin-top: 15px;
+}
+#settings span {
+    margin-top: 10px;
+}
+#uplode .fa-cloud-arrow-up {
+    margin-top: 15px;
+}
+#uplode .fa-cloud-arrow-up, #settings .fa-gear {
+    font-size: 100px;
+    color: white;
+}
+#uplode input {
+    width: 180px;
+}
+#uplode {
+    height: 430px;
+}
+#settings {
+    /* display: flex; */
+    height: 230px;
+}
+#settings span {
+    width: 70%;
+}
+.fa-xmark {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    transition: 0.3s;
+}
+.fa-xmark:hover {
+    color: red;
+}
+header {
+    position: fixed;
+    bottom: 0px;
+}
+#create {
+    background-color: var(--main-color5);
+    position: fixed;
+    width: 300px;
+    height: 180px;
+    border-radius: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    /* display: flex; */
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+    z-index: 800;
+    position: fixed;
+    display: none;
+}
+#create input {
+    width: 90%;
+    padding: 15px;
+    background-color: white;
+    border-radius: 4px;
+    outline: none;
+    margin-top: 20px;
+    border: 2px solid black;
+    
+}
+#create button {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    position: absolute;
+    bottom: 0px;
+    background-color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    transition: 0.3s;
+    border-radius: 0px 0px 3px 3px;
+}
+#create button:hover {
+    background-color: var(--main-color3);
+    color: white;
+}
+#create p {
+    margin-top: 20px;
+}
+#uplode input {
+    width: 90%;
+    padding: 15px;
+    background-color: white;
+    border-radius: 4px;
+    outline: none;
+    margin-top: 20px;
+    border: 2px solid black;
+    
+}
+#uplode button {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    position: absolute;
+    bottom: 0px;
+    background-color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    transition: 0.3s;
+    border-radius: 0px 0px 3px 3px;
+}
+#uplode button:hover {
+    background-color: var(--main-color3);
+    color: white;
+}
+
+
+#iv {
+    background-color: var(--main-color5);
+    position: fixed;
+    width: 300px;
+    height: 220px;
+    border-radius: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+    display: none;
+    z-index: 800;
+    position: fixed;
+}
+#iv h4 {
+    color: red;
+    margin-top: 30px;
+}
+#iv h2 {
+    margin-top: 30px;
+}
+#iv h5 {
+    margin-top: 30px;
+}
+#iv span {
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+}
+#iv button{
+    width: 100%;
+    border: none;
+    padding: 15px;
+    position: absolute;
+    bottom: 0px;
+    background-color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    transition: 0.3s;
+    border-radius: 0px 0px 3px 3px;
+}
+#iv button:hover {
+    background-color: var(--main-color3);
+    color: white;
+}
+
+@media only screen and (max-width: 450px) {
+    #search {
+        width: 340px;
+    }
+    #search input {
+        width: 245px;
+    }
+    #search #PasswordInput {
+        width: 142px;
+    }
+    #search #PasswordLength {
+        width: 65px;
+        left: 145px;
+    }
+    #search #Random {
+        width: 130px;
+    }
+    button {
+        float: right;
+    }
+}
+@media only screen and (max-width: 360px) {
+    #search {
+        width: 100%;
+    }
+    #search input {
+        width: 70%;
+    }
+    #search #PasswordInput {
+        width: 43%;
+    }
+    #search #PasswordLength {
+        width: 18%;
+        left: 44%;
+    }
+    #search #Random {
+        width: 38%;
+    }
+    button {
+        float: right;
+    }
+}
