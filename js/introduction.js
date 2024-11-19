@@ -6,20 +6,30 @@ const button = document.querySelector('#button')
 let textnum = 0;
 
 async function next() {
+    let img = document.querySelector("#img")
+    let video = document.querySelector("#video")
     if(textnum == 3) {
         await window.localStorage.setItem('FristTime', false);
         window.location.href = '../'
     } else {
-        regularDots[textnum].style.display = 'none'
-        solidDots[textnum].style.display = 'inline'
-        for (let i = textnum - 1; i >= 0; i--) {
-            solidDots[i].style.display = 'none';
-            regularDots[textnum].style.display = 'inline'
-        }        
-        textP.innerText = text[textnum];
-        textnum++
+        if(true) {
+            regularDots[textnum].style.display = 'none'
+            solidDots[textnum].style.display = 'inline'
+            for (let i = textnum - 1; i >= 0; i--) {
+                solidDots[i].style.display = 'none';
+                regularDots[textnum].style.display = 'inline'
+            }        
+            textP.innerText = text[textnum];
+            textnum++
+        }
         if(textnum == 3) {
             button.textContent = 'Lets go'
+        }
+        if(textnum == 2) {
+            img.style.display = 'none';
+            video.style.display = 'block'
+            video.play()
+            // textnum++
         }
     }
 }
