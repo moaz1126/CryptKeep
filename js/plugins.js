@@ -99,8 +99,8 @@ function addAPP(appName, password, i, imgURL, Value, username) {
                 </div>
                 <div class="editpassword">
                     <span onclick="xmarkspanFun(${i})"><i class="fa-solid fa-xmark"></i></span>
-                    <input type="text" class="EdotedUsername" value="${username}">
-                    <input type="password" class="EdotedPassword">
+                    <input type="text" class="EdotedUsername" placeholder="Your Username" value="${username}">
+                    <input type="password" class="EdotedPassword" placeholder="Your New Password">
                     <button onclick="Editpassword(${i})">Enter</button>
                 </div>
                 <div class="backupcodes">

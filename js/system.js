@@ -105,7 +105,7 @@ async function AddAPP() {
                 Loader(true);
                 let encryptPassword = await encrypt(PasswordInput.value, passkey, passkey2);
                 if(usernameInput.value.length > 0) {
-                    let encryptUser = await encrypt(PasswordInput.value, passkey, passkey2);
+                    let encryptUser = await encrypt(usernameInput.value, passkey, passkey2);
                     FileContent[searchInput.value] = { password: `${encryptPassword}`, username: `${encryptUser}` };
                 } else {
                     FileContent[searchInput.value] = { password: `${encryptPassword}` };
