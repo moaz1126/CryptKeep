@@ -97,10 +97,12 @@ async function AddAPP() {
             if(!FileContent[searchInput.value]) {
                 let encryptPassword = await encrypt(PasswordInput.value, passkey, passkey2);
                 FileContent[searchInput.value] = { password: `${encryptPassword}` };
-                
+                Loader(true);
                 let icon = await searchAppIconSystem(searchInput.value)
                 // console.log(searchValue.value, PasswordInput.value, appsDiv.children.length, icon)
+                Loader(true);
                 addAPP(searchInput.value, PasswordInput.value, appsDiv.children.length, icon, '')
+                Loader(false);
                 if(window.localStorage.getItem('SaveToLocalStorge') == 'true') {
                     window.localStorage.setItem('Passwords', JSON.stringify(FileContent))
                 }

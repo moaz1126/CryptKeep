@@ -152,3 +152,12 @@ function xmarkBackupFun(e) {
         dots2[e].style.color = '#2C3E50'
     }
 }
+
+let loader = document.querySelector("#loader");
+function Loader(State) {
+    if(State == true) {
+        loader.style.display = 'block'
+    } else {
+        loader.style.display = 'none'
+    }
+} 
