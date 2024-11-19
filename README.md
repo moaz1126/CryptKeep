@@ -27,5 +27,5 @@
 
 ## Documentation
 
-[IIntroduction](https://cryptkeep-web.web.app/Other/introduction.html)
+[Introduction](https://cryptkeep-web.web.app/Other/introduction.html)
 
