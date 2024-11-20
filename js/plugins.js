@@ -184,6 +184,7 @@ function createiv() {
     
         createMenu.style.display = 'none'
         ivSH(criptoiv);
+        onblur();
     } else {
         alert('Enter passkey')
     }
@@ -271,3 +272,7 @@ function EditPass(e) {
 function onblur() {
     ProgressBar('0%')
 }
+
+newpasskey.addEventListener("input", function() {
+    ProgressBar(checkPasswordStrength(newpasskey.value));
+});
