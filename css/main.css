@@ -4,7 +4,7 @@
     --main-color2: #16A085;
     --main-color3: #2C3E50;
     --main-color4: #FF5733;
-    --main-color5: #4A90E2;
+    --main-color5: #0073ff;
     --main-color6: #8E44AD;
     --main-color7: #F1C40F;
     --main-color8: #2ECC71;
@@ -20,7 +20,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: rgb(6, 38, 59);
+    background-color: rgb(0, 0, 0);
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -143,4 +143,8 @@ header div a:hover {
 @keyframes spin {
 0% { transform: rotate(0deg); }
 100% { transform: rotate(360deg); }
+}
+
+button {
+    cursor: pointer;
 }
