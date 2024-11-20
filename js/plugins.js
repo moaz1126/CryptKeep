@@ -100,8 +100,8 @@ function addAPP(appName, password, i, imgURL, Value, username) {
                 <div class="password">
                     <input type="password" class="password2 PassContent" value="${password}" readonly>
                     <button onclick="PassCopy(${i})">Copy</button>
-                    <span onclick="eyeFun(${i})"><i class="fa-regular fa-eye"></i></span>
-                    <span onclick="eyeFun(${i})"><i class="fa-regular fa-eye-slash"></i></span>
+                    <span class="eyeSpan eyeSpan1" onclick="eyeFun(${i})"><i class="fa-regular fa-eye"></i></span>
+                    <span class="eyeSpan eyeSpan2" onclick="eyeFun(${i})"><i class="fa-regular fa-eye-slash"></i></span>
                 </div>
                 <div class="editMenu">
                     <span onclick="xmarkspanFun(${i})"><i class="fa-solid fa-pen-to-square"></i> Edit</span>

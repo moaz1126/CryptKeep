@@ -37,7 +37,7 @@ function eyeFun(e) {
     eye = document.querySelectorAll('.fa-eye')
     eye2 = document.querySelectorAll('.fa-eye-slash')
     password = document.querySelectorAll('.password2')
-    if(eye[e].style.display == 'inline') {
+    if(eye2[e].style.display == '' || eye2[e].style.display == 'none') {
         eye[e].style.display = 'none'
         eye2[e].style.display = 'inline'
         password[e].type = 'text';
