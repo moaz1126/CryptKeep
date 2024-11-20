@@ -174,7 +174,7 @@ button {
     border-radius: 3px;
     border: 1px solid black;
     padding: 7px;
-    margin-left: 30px;
+    margin-left: 10px;
     height: 30px;
 }
 .editpassword .fa-xmark {
@@ -184,16 +184,17 @@ button {
 .editpassword button {
     outline: none;
     border: none;
-    height: 32px;
-    width: 50px;
+    height: 40px;
+    width: 75px;
     border-radius: 3px;
     border: 1px solid black;
     transition: 0.3s;
     /* margin-left: 15px; */
     position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
+    /* top: 50%; */
+    right: 27px;
+    /* padding: px; */
+    /* transform: translateY(-50%); */
 }
 .editpassword button:hover {
     background-color: var(--main-color3);
@@ -511,4 +512,38 @@ header {
     button {
         float: right;
     }
+}
+
+
+#spanP {
+    width: 100%;
+    background: rgb(255, 255, 255);
+    position: absolute;
+    height: 10px;
+    top: -12px;
+    border-radius: 30px;
+}
+#span {
+    width: 0%;
+    background: rgb(255, 6, 6);
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    border-radius: 30px;
+    transition: 1s;
+}
+/* #span {
+    width: 200px;
+    background: rgb(8, 247, 60);
+    height: 15px;
+    transition: 0.7s;
+} */
+
+.enterEdit {
+    top: 19px;
+    transform: unset;
+}
+.RandomEdit {
+    bottom: 19px;
+    transform: unset;
 }

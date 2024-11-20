@@ -62,6 +62,7 @@ async function searchAppIconSystem(appName) {
 
 function generateRandomPassword(length) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
+    length = Math.abs(length);
     let password2 = '';
     for (let i = 0; i < length; i++) {
         const randomIndex = Math.floor(Math.random() * characters.length);
@@ -73,6 +74,16 @@ function generateRandomPassword(length) {
 function RandomPassword() {
     let lengthValue = +lengthInput.value;
     PasswordInput.value = generateRandomPassword(lengthValue)
+    ProgressBar("100%")
+}
+
+function RandomEditPass(e) {
+    let EdotedPasswordInput = document.querySelectorAll('.EdotedPassword')[e];
+    let EdotedPasswordLenInput = document.querySelectorAll('.EdotedPasswordLen')[e];
+    let lengthValue = +EdotedPasswordLenInput.value;
+    EdotedPasswordInput.value = generateRandomPassword(lengthValue)
+    ProgressBar("100%")
+    EdotedPasswordInput.type = 'text';
 }
 
 const appsDiv = document.querySelector('#apps')
@@ -100,8 +111,10 @@ function addAPP(appName, password, i, imgURL, Value, username) {
                 <div class="editpassword">
                     <span onclick="xmarkspanFun(${i})"><i class="fa-solid fa-xmark"></i></span>
                     <input type="text" class="EdotedUsername" placeholder="Your Username" value="${username}">
-                    <input type="password" class="EdotedPassword" placeholder="Your New Password">
-                    <button onclick="Editpassword(${i})">Enter</button>
+                    <input type="number" value="8" name="" class="EdotedPasswordLen">
+                    <input type="password" class="EdotedPassword" oninput="EditPass(${i})" placeholder="Your New Password">
+                    <button onclick="Editpassword(${i})" class="enterEdit">Enter</button>
+                    <button onclick="RandomEditPass(${i})" class="RandomEdit">Random Password</button>
                 </div>
                 <div class="backupcodes">
                     <span onclick="xmarkBackupFun(${i})"><i class="fa-solid fa-xmark"></i></span>
@@ -196,3 +209,65 @@ async function textareaUpdate(e) {
     xmarkBackupFun(e)
 }
 
+
+function ProgressBar(e) {
+    let span = document.querySelector("#span");
+    span.style.width = e
+    let number = parseFloat(e);
+    if(number < 33) {
+        span.style.background = 'rgb(255, 6, 6)';
+    } else if(number < 66) {
+        span.style.background = 'rgb(251, 255, 6)';
+    } else {
+        span.style.background = 'rgb(8, 247, 60)';
+    }
+}
+
+
+function checkPasswordStrength(password) {
+    let score = 0;
+
+    // Check length
+    if (password.length >= 8) {
+        score += 25;
+    } else {
+        score += (password.length / 8) * 25;
+    }
+
+    // Check for lowercase letters
+    if (/[a-z]/.test(password)) {
+        score += 15;
+    }
+
+    // Check for uppercase letters
+    if (/[A-Z]/.test(password)) {
+        score += 15;
+    }
+
+    // Check for numbers
+    if (/\d/.test(password)) {
+        score += 15;
+    }
+
+    // Check for special characters
+    if (/[\W_]/.test(password)) {
+        score += 30;
+    }
+
+    // Limit score to 100
+    score = Math.min(score, 100);
+
+    return `${score}%`;
+}
+
+PasswordInput.addEventListener("input", function() {
+    ProgressBar(checkPasswordStrength(PasswordInput.value));
+});
+
+function EditPass(e) {
+    let editInput = document.querySelectorAll('.EdotedPassword')[e];
+    ProgressBar(checkPasswordStrength(editInput.value));
+}
+function onblur() {
+    ProgressBar('0%')
+}

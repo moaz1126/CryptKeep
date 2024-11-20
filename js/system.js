@@ -121,6 +121,7 @@ async function AddAPP() {
                 PasswordInput.value = "";
                 usernameInput.value = "";
                 add(true)
+                onblur();
             } else {
                 alert('Please enter a valid name');
             }
@@ -163,6 +164,7 @@ async function Editpassword(e) {
         } 
     }
     xmarkspanFun(e)
+    onblur()
 }
 
 function RemoveApp(e) {
