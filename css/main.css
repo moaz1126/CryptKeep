@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root {
+    --main-color1: #ffffff;
+    --main-color2: #16A085;
+    --main-color3: #2C3E50;
+    --main-color4: #FF5733;
+    --main-color5: #0073ff;
+    --main-color6: #8E44AD;
+    --main-color7: #F1C40F;
+    --main-color8: #2ECC71;
+    --main-bg1: #1E1E1E;
+    --main-bg2: #282C34;
+    --main-bg3: #2C3E50;
+    --main-bg4: #8A2BE2;
+    --main-bg5: #34495E;
+}
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+    /* background-color: rgb(0, 0, 0); */
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-top: 59px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px grey; 
+border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: linear-gradient(#0000FF, #0096FF); 
+border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: linear-gradient(#00009e, #005c9e); 
+}
+
+nav {
+    width: 100%;
+    background-color: var(--main-color1);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    z-index: 2000;
+}
+nav div {
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav div a {
+    text-decoration: none;
+    color: var(--main-color3);
+    font-weight: 600;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+nav div a:hover {
+    background-color: var(--main-color3);
+    color: white;
+}
+nav h1 {
+    color: var(--main-color3);
+}
+nav span {
+    display: none;
+    font-size: 25px;
+    width: 35px;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    border-radius: 3px;
+}
+footer {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+}
+footer div {
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer div a {
+    width: 35px;
+    height: 35px;
+    text-decoration: none;
+    color: var(--main-color3);
+    transition: 0.3s;
+    box-sizing: border-box;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer div a:hover {
+    background-color: var(--main-color3);
+    color: white;
+}
+@media only screen and (max-width: 700px) {
+    /* nav span {
+        display: flex;
+    } */
+    nav div {
+        display: none;
+        justify-content: center;
+        /* flex-direction: column;
+        position: absolute;
+        right: 15px;
+        background-color: var(--main-color1);
+        top: 70px;
+        width: 170px;
+        border-radius: 3px;
+        transition: 0.4;
+        z-index: 555; */
+    }
+    /* nav div a {
+        width: 100%;
+        border-radius: 0px;
+    } */
+}
+
+
+  
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+button {
+    cursor: pointer;
+}
+
+section {
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-color: #f8f8f8;
+    flex-wrap: wrap;
+}
+#topMain {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#topMain div {
+    /* width: 40%; */
+}
+#topMain div {
+    width: 400px;
+}
+#topMain #img {
+    background-color: #cecece;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    animation: move2 2s infinite alternate;
+}
+#topMain div img {
+    width: 95%;
+    height: 95%;
+    border-radius: 15px;
+
+}
+#topMain div h2 {
+    margin-bottom: 20px;
+    font-size: 45px;
+}
+#topMain div p {
+    width: 450px;
+}
+button {
+    padding: 15px;
+    outline: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    width: 150px;
+    outline: none;
+    border: none;
+    background: linear-gradient(#1b40c5, #216294);
+    font-weight: bold;
+    color: white;
+    margin-top: 30px;
+}
+
+button i {
+    animation: none;
+    transform: 0.4s;
+}
+button:hover i {
+    animation: move 2s infinite alternate;
+}
+
+#topMain button {
+    width: 150px;
+    /* margin-top: unset; */
+    height: 46px;
+    position: relative;
+    /* bottom: 15px; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+}
+#topMain button a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+#topMain button a i {
+    margin-left: 15px;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(-50%);
+    }
+    50% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+@keyframes move2 {
+    0% {
+        transform: translateY(-10%);
+    }
+
+    100% {
+        transform: translateXY(10%);
+    }
+}
+
+#Download {
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;    
+}
+#Download h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+#Download #apps {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#Download #apps .app {
+    width: 250px;
+    background: #e9e9e9;
+    border-radius: 3px;
+    height: 300px;
+    padding: 15px;
+    position: relative;
+}
+#Download #apps .app h5 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#Download #apps .app span {
+    display: block;
+    margin-bottom: 10px;
+}
+#Download #apps .app span i {
+    width: 20px;
+}
+#Download #apps .app .fa-xmark {
+    color: red;
+}
+#Download #apps .app .fa-check {
+    color: rgb(0, 255, 115);
+}
+#Download #apps .app button {
+    width: 90%;
+    margin-top: unset;
+    height: 46px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#Download #apps .app button a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+#Download #apps .app button a i {
+    margin-left: 15px;
+}
+hr {
+    border-width: 2px;
+    border-color: #0000FF;
+}
+#AboutUs {
+    padding: 50px;
+    height: fit-content;
+}
+#AboutUs h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+#AboutUs p {
+    font-weight: bold;
+    font-size: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+#AboutUs span {
+    color: #0000ce;
+}
+
+#AboutApp {
+    padding: 50px;
+    height: fit-content;
+}
+#AboutApp h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+#AboutApp p {
+    font-weight: bold;
+    font-size: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+#AboutApp span {
+    color: #0000ce;
+}
+
+#Source {
+    height: fit-content;
+    padding: 20px;
+}
+#Source h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+#Source button {
+    /* width: 90%; */
+    /* margin-top: unset; */
+    height: 46px;
+    position: relative;
+    bottom: 15px;
+    /* left: 50%; */
+    width: 300px;
+    /* transform: translateX(-50%); */
+}
+#Source button a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+#Source button a i {
+    margin-left: 15px;
+}
+#Source div {
+    display: flex;
+    justify-content: space-evenly;
+}
+@media only screen and (max-width: 700px) {
+    section {
+        height: fit-content;
+        padding: 20px;
+    }
+    #topMain #img {
+        width: 90%;
+        height: fit-content;
+        padding: 10px;
+        margin-top: 50px;
+    }
+    #topMain #img img {
+        width: 100%;
+        height: 100%;
+    }
+    #topMain div p {
+        width: 100%;
+    }
+    #Download .app {
+        margin-bottom: 20px;
+    }
+    #Download #app {
+        padding: 0pxpx;
+    }
+    #AboutUs h2 {
+        font-size: 30px;
+    }
+    #AboutApp h2 {
+        font-size: 20px;
+    }
+    #AboutUs p {
+        font-size: 15px;
+        font-weight: normal;
+    }
+    #AboutApp p {
+        font-size: 15px;
+        font-weight: normal;
+    }
+    #AboutUs {
+        padding: 15px;
+    }
+    #AboutApp {
+        padding: 15px;
+    }
+    #Source div {
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+    }
+}
