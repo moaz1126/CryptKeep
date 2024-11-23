@@ -74,5 +74,27 @@
     <script src="../js/background.js"></script>
     <script src="../js/popup.js"></script>
     <script src="../js/introduction.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "",
+            authDomain: "",
+            databaseURL: "",
+            projectId: "",
+            storageBucket: "",
+            messagingSenderId: "",
+            appId: "",
+            measurementId: ""
+        };
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const analytics = firebase.analytics(app);
+    </script>
+    <script>
+        analytics.logEvent('page_view', {
+            page_location: window.location.href,
+            page_title: document.title,
+        });
+    </script>
 </body>
 </html>
